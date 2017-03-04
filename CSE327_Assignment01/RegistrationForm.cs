@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace CSE327_Assignment01
 {
-    public partial class Form1 : Form
+    public partial class RegistrationForm : Form
     {
-        public Form1()
+        public static RegisterCourseController rcc;
+
+        public RegistrationForm()
         {
             InitializeComponent();
+            rcc = new RegisterCourseController();
+        }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

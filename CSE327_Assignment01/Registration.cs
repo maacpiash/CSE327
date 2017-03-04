@@ -8,12 +8,25 @@ namespace CSE327_Assignment01
 {
     public class Registration
     {
-        Course ce;
+        private List<Course> courseList;
         
         public Registration()
         {
-             ce = new Course();
-             
+            courseList = new List<Course>();
         }
+
+        public void addCourse(Course c)
+        {
+            courseList.Add(c);
+        }
+
+        public int getTotal()
+        {
+            int total = 0;
+            foreach (Course c in courseList)
+                total += c.getSubTotal();
+            return total;
+        }
+
     }
 }
