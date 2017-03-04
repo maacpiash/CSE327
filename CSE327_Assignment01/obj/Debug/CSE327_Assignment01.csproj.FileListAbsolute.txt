@@ -1,2 +1,10 @@
 c:\users\maac\documents\visual studio 2015\Projects\CSE327_Assignment01\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe.config
 C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe.config
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.pdb
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csprojResolveAssemblyReference.cache
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.RegistrationForm.resources
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.Properties.Resources.resources
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csproj.GenerateResource.Cache
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.exe
+C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.pdb

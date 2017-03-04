@@ -9,18 +9,17 @@ namespace CSE327_Assignment01
     public class RegisterCourseController
     {
         private Registration reg;
+        private CourseFactory fac;
 
-        public void makeNewRegistration()
+        public RegisterCourseController()
         {
-            reg = new Registration();
+            fac = new CourseFactory();
+            makeNewRegistration();
         }
 
-        public void addCourse(string id)
-        {
-            reg.addCourse(CourseFactory.getCourse(id));
-        }
-
+        public void makeNewRegistration() { reg = new Registration(); }
+        public void addCourse(string id) { reg.addCourse(fac.getCourse(id)); }
         public Registration getRegistration() { return reg; }
-        public Course getCourse(string id) { return CourseFactory.getCourse(id); }
+        public Course getCourse(string id) { return fac.getCourse(id); }
     }
 }

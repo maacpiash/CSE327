@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CSE327_Assignment01
 {
@@ -31,13 +32,13 @@ namespace CSE327_Assignment01
             cList.Add(new Course("MAT 350", "Engineering Math.", 3, 1500));
             cList.Add(new Course("MAT 361", "Probability & Stat.", 3, 1500));
         }
+        
 
-        public static Course getCourse(string id)
+        public Course getCourse(string id)
         {
             var c = cList.Where(course => course.getId() == id);
-            return (Course) c;
+            if (c.ToList().Count == 0) MessageBox.Show("No course found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return c.FirstOrDefault();
         }
-
-
     }
 }
