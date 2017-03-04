@@ -21,23 +21,40 @@ namespace CSE327_Assignment01
             course.setCredit(3);
             course.setTuitionPerCredit(1500);
             cList.Add(course);
+            
 
+            cList.Add(new Course("CSE 482", "Web Development", 3, 1500));
             cList.Add(new Course("CSE 418", "Computer Graphics", 3, 1500));
-            cList.Add(new Course("EEE 311", "Analog Elec. II", 3, 1500));
+            cList.Add(new Course("EEE 311", "Analog Electronics II", 3, 1500));
             cList.Add(new Course("PHY 108", "Physics II", 3, 1500));
+            cList.Add(new Course("PHY 107", "Physics I", 3, 1500));
             cList.Add(new Course("CSE 323", "Operating System", 3, 1500));
             cList.Add(new Course("CSE 338", "Networking", 3, 1500));
-            cList.Add(new Course("CSE 332", "Computer Arch.", 3, 1500));
-            cList.Add(new Course("EEE 111", "Analog Elec. I", 3, 1500));
-            cList.Add(new Course("MAT 350", "Engineering Math.", 3, 1500));
-            cList.Add(new Course("MAT 361", "Probability & Stat.", 3, 1500));
+            cList.Add(new Course("CSE 231", "Digital Logic Design", 3, 1500));
+            cList.Add(new Course("CSE 332", "Computer Organization and Architechture", 3, 1500));
+            cList.Add(new Course("EEE 111", "Analog Electronics I", 3, 1500));
+            cList.Add(new Course("MAT 120", "Calculus and Analytic Geometry-I", 3, 1500));
+            cList.Add(new Course("MAT 130", "Calculus and Analytic Geometry-II", 3, 1500));
+            cList.Add(new Course("MAT 240", "Calculus and Analytic Geometry-III", 3, 1500));
+            cList.Add(new Course("MAT 250", "Calculus and Analytic Geometry-IV", 3, 1500));
+            cList.Add(new Course("MAT 350", "Engineering Mathematics", 3, 1500));
+            cList.Add(new Course("MAT 361", "Probability && Statistics", 3, 1500));
+            cList.Add(new Course("CSE 215", "Fundamentals of Computer Programming", 3, 1500));
+            cList.Add(new Course("CSE 115", "Computing Concepts", 3, 1500));
+            cList.Add(new Course("CSE 225", "Data Structures", 3, 1500));
+            cList.Add(new Course("EEE 141", "Electrical Circuits", 3, 1500));
+            cList.Add(new Course("CSE 311", "Database Management System", 3, 1500));
+            cList.Add(new Course("CSE 273", "Introduction to Theory of Computation", 3, 1500));
+            cList.Add(new Course("CSE 173", "Discrete Mathematics", 3, 1500));
+
         }
-        
+
 
         public Course getCourse(string id)
         {
             var c = cList.Where(course => course.getId() == id);
-            if (c.ToList().Count == 0) MessageBox.Show("No course found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (c.ToList().Count == 0) { MessageBox.Show("No course found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); Program.success = false; }
+            else { Program.success = true; }
             return c.FirstOrDefault();
         }
     }

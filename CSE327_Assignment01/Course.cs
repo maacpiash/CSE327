@@ -16,7 +16,7 @@ namespace CSE327_Assignment01
 
 
         /******************************* Constructors *******************************/
-        public Course() { }
+        public Course() { credit = 0; tuitionPerCredit = 0; }
 
         public Course(string id, string title, int credit, int tuitionPerCredit)
         {

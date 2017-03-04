@@ -18,7 +18,7 @@ namespace CSE327_Assignment01
         }
 
         public void makeNewRegistration() { reg = new Registration(); }
-        public void addCourse(string id) { reg.addCourse(fac.getCourse(id)); }
+        public bool addCourse(string id) { return reg.addCourse(fac.getCourse(id)); }
         public Registration getRegistration() { return reg; }
         public Course getCourse(string id) { return fac.getCourse(id); }
     }
