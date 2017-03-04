@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableView = new System.Windows.Forms.TableLayoutPanel();
+            this.tablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.NewRegBttn = new System.Windows.Forms.Button();
             this.AddCourseBttn = new System.Windows.Forms.Button();
             this.Txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // tableView
+            // tablePanel
             // 
-            this.tableView.AutoScroll = true;
-            this.tableView.ColumnCount = 5;
-            this.tableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableView.Location = new System.Drawing.Point(9, 145);
-            this.tableView.Name = "tableView";
-            this.tableView.RowCount = 1;
-            this.tableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableView.Size = new System.Drawing.Size(967, 458);
-            this.tableView.TabIndex = 0;
+            this.tablePanel.AutoScroll = true;
+            this.tablePanel.ColumnCount = 5;
+            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tablePanel.Location = new System.Drawing.Point(9, 145);
+            this.tablePanel.Name = "tablePanel";
+            this.tablePanel.RowCount = 1;
+            this.tablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tablePanel.Size = new System.Drawing.Size(967, 458);
+            this.tablePanel.TabIndex = 0;
             // 
             // NewRegBttn
             // 
@@ -96,7 +96,7 @@
             this.Controls.Add(this.Txt);
             this.Controls.Add(this.AddCourseBttn);
             this.Controls.Add(this.NewRegBttn);
-            this.Controls.Add(this.tableView);
+            this.Controls.Add(this.tablePanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RegistrationForm";
             this.Text = "Register Courses";
@@ -109,7 +109,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableView;
+        private System.Windows.Forms.TableLayoutPanel tablePanel;
         private System.Windows.Forms.Button NewRegBttn;
         private System.Windows.Forms.Button AddCourseBttn;
         private System.Windows.Forms.TextBox Txt;

@@ -24,41 +24,47 @@ namespace CSE327_Assignment01
 
         private void RegistrationForm_Load(object sender, EventArgs e)
         {
-            tableView.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
-            tableView.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            resize();
+            tablePanel.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
+            tablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             InitializeTable();
+            resize();
         }
 
         public void InitializeTable()
         {
             l = new Label();
             l.Text = "SL #";
-            tableView.Controls.Add(l, 0, 0);
+            tablePanel.Controls.Add(l, 0, 0);
 
             l = new Label();
             l.Text = "Course Title";
-            tableView.Controls.Add(l, 1, 0);
+            tablePanel.Controls.Add(l, 1, 0);
 
             l = new Label();
             l.Text = "Credit";
-            tableView.Controls.Add(l, 2, 0);
+            tablePanel.Controls.Add(l, 2, 0);
 
             l = new Label();
             l.Text = "Tuition / Credit";
-            tableView.Controls.Add(l, 3, 0);
+            tablePanel.Controls.Add(l, 3, 0);
 
             l = new Label();
             l.Text = "Sub Total";
-            tableView.Controls.Add(l, 4, 0);
+            tablePanel.Controls.Add(l, 4, 0);
 
-            Total();
+            for(int i = 0; i < tablePanel.ColumnCount; i++)
+            {
+                ColumnStyle cs = new ColumnStyle(SizeType.Percent, 20);
+
+            }
+
+            //Total();
         }
 
         public void resize()
         {
-            tableView.Width = Width - 37;
-            tableView.Height = Height - 196;
+            tablePanel.Width = Width - 37;
+            tablePanel.Height = Height - 196;
         }
 
         private void RegistrationForm_SizeChanged(object sender, EventArgs e)
@@ -68,15 +74,22 @@ namespace CSE327_Assignment01
 
         public void Total()
         {
-            tableView.RowCount++;
+            tablePanel.RowCount++;
             l = new Label();
             l.Text = "Total";
-            tableView.Controls.Add(l, 3, tableView.RowCount - 1);
+            tablePanel.Controls.Add(l, 3, tablePanel.RowCount - 1);
         }
 
         private void NewRegBttn_Click(object sender, EventArgs e)
         {
-            Controls.Remove(tableView);
+            Controls.Remove(tablePanel);
+            tablePanel = new TableLayoutPanel();
+            tablePanel.Location = new Point(9, 145);
+            Controls.Add(tablePanel);
+            tablePanel.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
+            tablePanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            InitializeTable();
+            resize();
         }
 
         private void AddCourseBttn_Click(object sender, EventArgs e)
