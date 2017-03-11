@@ -62,7 +62,8 @@ namespace CSE327_Assignment01
                 labels.Add(l);
                 panel1.Controls.Add(l);
 
-                totalLabel.Text = rcc.getRegistration().getTotal().ToString();
+                totalLabel.Text = rcc.getRegistration().getExtraFeeAmount().ToString();
+                gTotalLabel.Text = rcc.getRegistration().getGrandTotal().ToString();
                 row++;
             }
 

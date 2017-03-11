@@ -40,6 +40,8 @@
             this.Txt = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gTotalLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -167,9 +169,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(523, 503);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.Size = new System.Drawing.Size(162, 13);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Total";
+            this.label2.Text = "Development Fee / BD Tax";
             // 
             // totalLabel
             // 
@@ -181,11 +183,33 @@
             this.totalLabel.TabIndex = 16;
             this.totalLabel.Text = "0";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(523, 525);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Grand Total";
+            // 
+            // gTotalLabel
+            // 
+            this.gTotalLabel.AutoSize = true;
+            this.gTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gTotalLabel.Location = new System.Drawing.Point(766, 532);
+            this.gTotalLabel.Name = "gTotalLabel";
+            this.gTotalLabel.Size = new System.Drawing.Size(14, 13);
+            this.gTotalLabel.TabIndex = 18;
+            this.gTotalLabel.Text = "0";
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 557);
+            this.Controls.Add(this.gTotalLabel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Txt);
@@ -222,5 +246,7 @@
         private System.Windows.Forms.ComboBox Txt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label gTotalLabel;
     }
 }

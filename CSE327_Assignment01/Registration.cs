@@ -10,6 +10,7 @@ namespace CSE327_Assignment01
     public class Registration
     {
         private List<Course> courseList;
+        private IExtraFeeCalculator iefc;
 
         public Registration() { courseList = new List<Course>(); }
 
@@ -32,6 +33,17 @@ namespace CSE327_Assignment01
                 foreach (Course c in courseList)
                     try { total += c.getSubTotal(); } catch { }
             return total;
+        }
+
+        public int getExtraFeeAmount()
+        {
+            iefc = CourseFactory.getInstance().getExtraFeeCalculator();
+            return iefc.getExtraAmount(this.getTotal());
+        }
+
+        public int getGrandTotal()
+        {
+            return this.getTotal() + this.getExtraFeeAmount();
         }
 
     }

@@ -4,12 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Collections.Specialized;
 
 namespace CSE327_Assignment01
 {
     public class CourseFactory
     {
-        private static List<Course> cList;
+        private static CourseFactory instance;
+        private IExtraFeeCalculator efCalculator;
+        private List<Course> cList;
+        
+        
 
         public CourseFactory()
         {
@@ -21,7 +27,6 @@ namespace CSE327_Assignment01
             course.setCredit(3);
             course.setTuitionPerCredit(1500);
             cList.Add(course);
-            
 
             cList.Add(new Course("CSE 482", "Web Development", 3, 1500));
             cList.Add(new Course("CSE 418", "Computer Graphics", 3, 1500));
@@ -47,8 +52,36 @@ namespace CSE327_Assignment01
             cList.Add(new Course("CSE 273", "Introduction to Theory of Computation", 3, 1500));
             cList.Add(new Course("CSE 173", "Discrete Mathematics", 3, 1500));
 
+            instance = this;
         }
 
+        public static CourseFactory getInstance()
+        {
+            Object sync = new object();
+            lock(sync)
+            {
+                if (instance == null)
+                    instance = new CourseFactory();
+                return instance;
+            }
+            
+        }
+
+        public IExtraFeeCalculator getExtraFeeCalculator()
+        {
+            if(efCalculator == null)
+            {
+                try
+                {
+                    efCalculator = (IExtraFeeCalculator) Activator.CreateInstance(Type.GetType(Program.getTypeFromConfig()));
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.ToString());
+                }
+            }
+            return efCalculator;
+        }
 
         public Course getCourse(string id)
         {

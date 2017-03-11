@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDTaxAdapter.cs" />
+    <Compile Include="BDTaxCalculator.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseFactory.cs" />
     <Compile Include="CourseRegForm.cs">
@@ -54,6 +56,8 @@
     <Compile Include="CourseRegForm.Designer.cs">
       <DependentUpon>CourseRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DevelopmentFeeCalculator.cs" />
+    <Compile Include="IExtraFeeCalculator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterCourseController.cs" />
@@ -70,6 +74,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="CourseRegister.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

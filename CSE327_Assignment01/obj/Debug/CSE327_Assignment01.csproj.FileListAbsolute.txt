@@ -9,3 +9,12 @@ C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\De
 C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.exe
 C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.pdb
 C:\Users\maacp\OneDrive\Documents\CSE327_Assignment01\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.CourseRegForm.resources
+G:\CSE327\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe.config
+G:\CSE327\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe
+G:\CSE327\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.pdb
+G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csprojResolveAssemblyReference.cache
+G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.RegistrationForm.resources
+G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.Properties.Resources.resources
+G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csproj.GenerateResource.Cache
+G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.exe
+G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.pdb
