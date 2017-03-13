@@ -43,5 +43,6 @@ namespace CSE327_Assignment01
 
         /***************************** Other Method(s) *****************************/
         public int getSubTotal() { return credit * tuitionPerCredit; }
+        public override string ToString() { return title; }
     }
 }

@@ -13,9 +13,7 @@ namespace CSE327_Assignment01
     {
         private static CourseFactory instance;
         private IExtraFeeCalculator efCalculator;
-        private List<Course> cList;
-        
-        
+        private List<Course> cList;        
 
         public CourseFactory()
         {
@@ -71,9 +69,11 @@ namespace CSE327_Assignment01
         {
             if(efCalculator == null)
             {
+
                 try
                 {
-                    efCalculator = (IExtraFeeCalculator) Activator.CreateInstance(Type.GetType(Program.getTypeFromConfig()));
+                    string type = typeof(IExtraFeeCalculator).Namespace.ToString() + "." + ConfigurationSettings.AppSettings["ClassName"].ToString();
+                    efCalculator = (IExtraFeeCalculator) Activator.CreateInstance(Type.GetType(type));
                 }
                 catch (Exception x)
                 {
@@ -86,8 +86,9 @@ namespace CSE327_Assignment01
         public Course getCourse(string id)
         {
             var c = cList.Where(course => course.getId() == id);
-            if (c.ToList().Count == 0) { MessageBox.Show("No course found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); Program.success = false; }
-            else { Program.success = true; }
+            Program.success = (c.ToList().Count == 0) ? false : true;
+            if (!Program.success)
+                MessageBox.Show("No course found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return c.FirstOrDefault();
         }
     }

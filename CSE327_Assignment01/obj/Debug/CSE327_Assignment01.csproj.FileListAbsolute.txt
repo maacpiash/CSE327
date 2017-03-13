@@ -18,3 +18,12 @@ G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.Properties.Resources
 G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csproj.GenerateResource.Cache
 G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.exe
 G:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.pdb
+I:\CSE327\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe.config
+I:\CSE327\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.exe
+I:\CSE327\CSE327_Assignment01\bin\Debug\CSE327_Assignment01.pdb
+I:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csprojResolveAssemblyReference.cache
+I:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.RegistrationForm.resources
+I:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.Properties.Resources.resources
+I:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csproj.GenerateResource.Cache
+I:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.exe
+I:\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.pdb
