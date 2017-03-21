@@ -42,12 +42,19 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gTotalLabel = new System.Windows.Forms.Label();
+            this.chkAE = new System.Windows.Forms.CheckBox();
+            this.chkFF = new System.Windows.Forms.CheckBox();
+            this.chkAM = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.calcDiscButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.discountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(12, 176);
+            this.panel1.Location = new System.Drawing.Point(12, 153);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(828, 324);
             this.panel1.TabIndex = 0;
@@ -85,7 +92,7 @@
             // 
             this.sl.AutoSize = true;
             this.sl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sl.Location = new System.Drawing.Point(12, 160);
+            this.sl.Location = new System.Drawing.Point(12, 137);
             this.sl.Name = "sl";
             this.sl.Size = new System.Drawing.Size(34, 13);
             this.sl.TabIndex = 9;
@@ -95,7 +102,7 @@
             // 
             this.coursetitle.AutoSize = true;
             this.coursetitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coursetitle.Location = new System.Drawing.Point(69, 160);
+            this.coursetitle.Location = new System.Drawing.Point(69, 137);
             this.coursetitle.Name = "coursetitle";
             this.coursetitle.Size = new System.Drawing.Size(75, 13);
             this.coursetitle.TabIndex = 10;
@@ -105,7 +112,7 @@
             // 
             this.credit.AutoSize = true;
             this.credit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.credit.Location = new System.Drawing.Point(310, 160);
+            this.credit.Location = new System.Drawing.Point(310, 137);
             this.credit.Name = "credit";
             this.credit.Size = new System.Drawing.Size(40, 13);
             this.credit.TabIndex = 11;
@@ -115,7 +122,7 @@
             // 
             this.tpc.AutoSize = true;
             this.tpc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tpc.Location = new System.Drawing.Point(523, 160);
+            this.tpc.Location = new System.Drawing.Point(523, 137);
             this.tpc.Name = "tpc";
             this.tpc.Size = new System.Drawing.Size(93, 13);
             this.tpc.TabIndex = 12;
@@ -125,7 +132,7 @@
             // 
             this.subtotal.AutoSize = true;
             this.subtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subtotal.Location = new System.Drawing.Point(763, 160);
+            this.subtotal.Location = new System.Drawing.Point(763, 137);
             this.subtotal.Name = "subtotal";
             this.subtotal.Size = new System.Drawing.Size(62, 13);
             this.subtotal.TabIndex = 13;
@@ -179,6 +186,7 @@
             this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalLabel.Location = new System.Drawing.Point(763, 503);
             this.totalLabel.Name = "totalLabel";
+            this.totalLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.totalLabel.Size = new System.Drawing.Size(14, 13);
             this.totalLabel.TabIndex = 16;
             this.totalLabel.Text = "0";
@@ -187,7 +195,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(523, 525);
+            this.label3.Location = new System.Drawing.Point(523, 560);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 17;
@@ -197,17 +205,98 @@
             // 
             this.gTotalLabel.AutoSize = true;
             this.gTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gTotalLabel.Location = new System.Drawing.Point(766, 532);
+            this.gTotalLabel.Location = new System.Drawing.Point(763, 560);
             this.gTotalLabel.Name = "gTotalLabel";
+            this.gTotalLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gTotalLabel.Size = new System.Drawing.Size(14, 13);
             this.gTotalLabel.TabIndex = 18;
             this.gTotalLabel.Text = "0";
+            // 
+            // chkAE
+            // 
+            this.chkAE.AutoSize = true;
+            this.chkAE.Location = new System.Drawing.Point(12, 483);
+            this.chkAE.Name = "chkAE";
+            this.chkAE.Size = new System.Drawing.Size(127, 17);
+            this.chkAE.TabIndex = 19;
+            this.chkAE.Text = "Academic excellence";
+            this.chkAE.UseVisualStyleBackColor = true;
+            // 
+            // chkFF
+            // 
+            this.chkFF.AutoSize = true;
+            this.chkFF.Location = new System.Drawing.Point(12, 506);
+            this.chkFF.Name = "chkFF";
+            this.chkFF.Size = new System.Drawing.Size(102, 17);
+            this.chkFF.TabIndex = 20;
+            this.chkFF.Text = "Freedom Fighter";
+            this.chkFF.UseVisualStyleBackColor = true;
+            // 
+            // chkAM
+            // 
+            this.chkAM.AutoSize = true;
+            this.chkAM.Location = new System.Drawing.Point(12, 530);
+            this.chkAM.Name = "chkAM";
+            this.chkAM.Size = new System.Drawing.Size(151, 17);
+            this.chkAM.TabIndex = 21;
+            this.chkAM.Text = "Aboriginal / Minority Group";
+            this.chkAM.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Best for NSU",
+            "Best for Student"});
+            this.comboBox1.Location = new System.Drawing.Point(12, 553);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // calcDiscButton
+            // 
+            this.calcDiscButton.Location = new System.Drawing.Point(12, 604);
+            this.calcDiscButton.Name = "calcDiscButton";
+            this.calcDiscButton.Size = new System.Drawing.Size(121, 32);
+            this.calcDiscButton.TabIndex = 23;
+            this.calcDiscButton.Text = "Calculate Discount";
+            this.calcDiscButton.UseVisualStyleBackColor = true;
+            this.calcDiscButton.Click += new System.EventHandler(this.calcDiscButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(523, 530);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Discount";
+            // 
+            // discountLabel
+            // 
+            this.discountLabel.AutoSize = true;
+            this.discountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountLabel.Location = new System.Drawing.Point(763, 531);
+            this.discountLabel.Name = "discountLabel";
+            this.discountLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.discountLabel.Size = new System.Drawing.Size(14, 13);
+            this.discountLabel.TabIndex = 25;
+            this.discountLabel.Text = "0";
             // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 557);
+            this.ClientSize = new System.Drawing.Size(852, 648);
+            this.Controls.Add(this.discountLabel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.calcDiscButton);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.chkAM);
+            this.Controls.Add(this.chkFF);
+            this.Controls.Add(this.chkAE);
             this.Controls.Add(this.gTotalLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.totalLabel);
@@ -248,5 +337,12 @@
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label gTotalLabel;
+        private System.Windows.Forms.CheckBox chkAE;
+        private System.Windows.Forms.CheckBox chkFF;
+        private System.Windows.Forms.CheckBox chkAM;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button calcDiscButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label discountLabel;
     }
 }

@@ -46,8 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboriginalMinorityDiscount.cs" />
+    <Compile Include="AcademicExcellenceDiscount.cs" />
     <Compile Include="BDTaxAdapter.cs" />
     <Compile Include="BDTaxCalculator.cs" />
+    <Compile Include="BestForNSU.cs" />
+    <Compile Include="BestForStudent.cs" />
+    <Compile Include="CompositeDiscount.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseFactory.cs" />
     <Compile Include="CourseRegForm.cs">
@@ -57,6 +62,8 @@
       <DependentUpon>CourseRegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DevelopmentFeeCalculator.cs" />
+    <Compile Include="FreedomFighterDiscount.cs" />
+    <Compile Include="IDiscountStrategy.cs" />
     <Compile Include="IExtraFeeCalculator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

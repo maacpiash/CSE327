@@ -7,12 +7,15 @@ using System.Windows.Forms;
 
 namespace CSE327_Assignment01
 {
-    public class Registration
+    public class Registration : IObservable<IDiscountStrategy>
     {
         private List<Course> courseList;
         private IExtraFeeCalculator iefc;
+        private IDiscountStrategy discountStrategy;
 
         public Registration() { courseList = new List<Course>(); }
+        
+        public List<Course> getCourseList() { return courseList; }
 
         public bool addCourse(Course c)
         {
@@ -43,8 +46,15 @@ namespace CSE327_Assignment01
 
         public int getGrandTotal()
         {
-            return this.getTotal() + this.getExtraFeeAmount();
+            return discountStrategy.getTotal(this);
         }
 
+        public void setDiscountStrategy(IDiscountStrategy ids) { discountStrategy = ids; }
+        public IDiscountStrategy getDiscountStrategy() { return discountStrategy; }
+
+        public IDisposable Subscribe(IObserver<IDiscountStrategy> observer)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
