@@ -46,7 +46,8 @@ namespace CSE327_Assignment01
 
         public int getGrandTotal()
         {
-            return discountStrategy.getTotal(this);
+            int discount = discountStrategy == null ? 0 : discountStrategy.getTotal(this);
+            return getTotal() + getExtraFeeAmount() - discount;
         }
 
         public void setDiscountStrategy(IDiscountStrategy ids) { discountStrategy = ids; }

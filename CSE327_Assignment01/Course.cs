@@ -35,7 +35,7 @@ namespace CSE327_Assignment01
 
 
         /********************************* Getters *********************************/
-        public string getId() { return id; }
+        public string getId()  { return id; }
         public string getTitle() { return title; }
         public int getCredit() { return credit; }
         public int getTuitionPerCredit() { return tuitionPerCredit; }

@@ -12,11 +12,12 @@ namespace CSE327_Assignment01
         {
             if (reg.getCourseList().Count <= 5)
             {
-                int discount = reg.getDiscountStrategy() == null ? 0 : 20000;
-                return (int)(reg.getTotal() + reg.getExtraFeeAmount() - discount);
+                if (reg.getTotal() + reg.getExtraFeeAmount() > 20000)
+                    return reg.getDiscountStrategy() == null ? 0 : 20000;
+                else return 0;
             }
             else
-                throw new Exception("Student who is a progeny of a Freedom Fighter cannot take more than 5 courses.");
+                throw new Exception("A student who is a progeny of a Freedom Fighter cannot take more than 5 courses.");
         }
     }
 }

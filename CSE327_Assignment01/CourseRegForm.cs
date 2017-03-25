@@ -29,10 +29,13 @@ namespace CSE327_Assignment01
 
         private void CourseRegForm_Load(object sender, EventArgs e)
         {
-            InitializeTable();
             comboBox1.Text = "Best for NSU";
             checks = new List<CheckBox>() { chkAE, chkFF, chkAM };
-            foreach(CheckBox c in checks) c.Click += C_Click;
+            foreach (CheckBox c in checks)
+            {
+                c.Click += C_Click;
+                c.Enabled = false;
+            }
             comboBox1.Enabled = false;
             calcDiscButton.Enabled = false;
         }
@@ -45,43 +48,57 @@ namespace CSE327_Assignment01
             calcDiscButton.Enabled = (i > 0);
         }
 
-        public void InitializeTable()
-        {
-
-        }
-
         private void AddCourseBttn_Click(object sender, EventArgs e)
         {
-            
-            if (rcc.addCourse(Txt.Text) && Program.success)
+
+            try
             {
-                Course c = rcc.getCourse(Txt.Text);
+                if (rcc.addCourse(Txt.Text) && Program.success)
+                {
+                    Course c = rcc.getCourse(Txt.Text);
+                    l = new Label() { Text = (row + 1).ToString(), Location = new Point(sl.Location.X, 10 + row * 25), Size = new Size(25, 13) };
+                    labels.Add(l);
+                    panel1.Controls.Add(l);
 
-                l = new Label() { Text = (row + 1).ToString(), Location = new Point(sl.Location.X, 10 + row * 25), Size = new Size(25, 13) };
-                labels.Add(l);
-                panel1.Controls.Add(l);
+                    l = new Label() { Text = c.getTitle(), Location = new Point(coursetitle.Location.X, 10 + row * 25), Size = new Size(225, 13) };
+                    labels.Add(l);
+                    panel1.Controls.Add(l);
 
-                l = new Label() { Text = c.getTitle(), Location = new Point(coursetitle.Location.X, 10 + row * 25), Size = new Size(225, 13) };
-                labels.Add(l);
-                panel1.Controls.Add(l);
+                    l = new Label() { Text = c.getCredit().ToString(), Location = new Point(credit.Location.X, 10 + row * 25) };
+                    labels.Add(l);
+                    panel1.Controls.Add(l);
 
-                l = new Label() { Text = c.getCredit().ToString(), Location = new Point(credit.Location.X, 10 + row * 25) };
-                labels.Add(l);
-                panel1.Controls.Add(l);
+                    l = new Label() { Text = c.getTuitionPerCredit().ToString(), Location = new Point(tpc.Location.X, 10 + row * 25) };
+                    labels.Add(l);
+                    panel1.Controls.Add(l);
 
-                l = new Label() { Text = c.getTuitionPerCredit().ToString(), Location = new Point(tpc.Location.X, 10 + row * 25) };
-                labels.Add(l);
-                panel1.Controls.Add(l);
+                    l = new Label() { Text = c.getSubTotal().ToString(), Location = new Point(subtotal.Location.X, 10 + row * 25), Size = new Size(35, 13) };
+                    labels.Add(l);
+                    panel1.Controls.Add(l);
 
-                l = new Label() { Text = c.getSubTotal().ToString(), Location = new Point(subtotal.Location.X, 10 + row * 25), Size = new Size(35, 13) };
-                labels.Add(l);
-                panel1.Controls.Add(l);
+                    totalLabel.Text = rcc.getRegistration().getExtraFeeAmount().ToString();
+                    //discountLabel.Text = (rcc.getRegistration().getGrandTotal() - rcc.getRegistration().getTotal() - rcc.getRegistration().getExtraFeeAmount()).ToString();
+                    gTotalLabel.Text = rcc.getRegistration().getGrandTotal().ToString();
+                    row++;
+                    discountLabel.Text = rcc.getRegistration().getDiscountStrategy().getTotal(rcc.getRegistration()).ToString();
+                }
+            }
+            catch (NullReferenceException n)
+            {
 
-                totalLabel.Text = rcc.getRegistration().getExtraFeeAmount().ToString();
-                gTotalLabel.Text = rcc.getRegistration().getGrandTotal().ToString();
-                row++;
+            }
+            catch
+            {
+                MessageBox.Show("Student who is a progeny of a Freedom Fighter cannot take more than 5 courses.", "Course limit exceeded!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+            }
+            finally
+            {
+                checks.ForEach(x => x.Enabled = true);
+                calcDiscButton.Enabled = true;
             }
 
+        
         }
 
         private void NewRegBttn_Click(object sender, EventArgs e)
