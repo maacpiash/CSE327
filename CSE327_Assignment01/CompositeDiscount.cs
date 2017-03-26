@@ -29,7 +29,7 @@ namespace CSE327_Assignment01
         public void addDiscount(IDiscountStrategy ids)
         {
             discounts.Add(ids);
-            MessageBox.Show("Discount added successfully");
+            //MessageBox.Show("Discount added successfully");
         }
 
         public void setType(string type) { this.type = type; }
