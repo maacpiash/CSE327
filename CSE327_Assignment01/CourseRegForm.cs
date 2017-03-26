@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CSE327_Assignment01
 {
-    public partial class RegistrationForm : Form
+    public partial class RegistrationForm : Form, ISubscriber
     {
         private static RegisterCourseController rcc;
         public static Label l;
@@ -56,40 +56,40 @@ namespace CSE327_Assignment01
                 if (rcc.addCourse(Txt.Text) && Program.success)
                 {
                     Course c = rcc.getCourse(Txt.Text);
-                    l = new Label() { Text = (row + 1).ToString(), Location = new Point(sl.Location.X, 10 + row * 25), Size = new Size(25, 13) };
+                    int y = 10 + row * 25;
+                    l = new Label() { Text = (row + 1).ToString(), Location = new Point(sl.Location.X, y), Size = new Size(25, 13) };
                     labels.Add(l);
                     panel1.Controls.Add(l);
 
-                    l = new Label() { Text = c.getTitle(), Location = new Point(coursetitle.Location.X, 10 + row * 25), Size = new Size(225, 13) };
+                    l = new Label() { Text = c.getTitle(), Location = new Point(coursetitle.Location.X, y), Size = new Size(225, 13) };
                     labels.Add(l);
                     panel1.Controls.Add(l);
 
-                    l = new Label() { Text = c.getCredit().ToString(), Location = new Point(credit.Location.X, 10 + row * 25) };
+                    l = new Label() { Text = c.getCredit().ToString(), Location = new Point(credit.Location.X, y) };
                     labels.Add(l);
                     panel1.Controls.Add(l);
 
-                    l = new Label() { Text = c.getTuitionPerCredit().ToString(), Location = new Point(tpc.Location.X, 10 + row * 25) };
+                    l = new Label() { Text = c.getTuitionPerCredit().ToString(), Location = new Point(tpc.Location.X, y) };
                     labels.Add(l);
                     panel1.Controls.Add(l);
 
-                    l = new Label() { Text = c.getSubTotal().ToString(), Location = new Point(subtotal.Location.X, 10 + row * 25), Size = new Size(35, 13) };
+                    l = new Label() { Text = c.getSubTotal().ToString(), Location = new Point(subtotal.Location.X, y), Size = new Size(35, 13) };
                     labels.Add(l);
                     panel1.Controls.Add(l);
 
-                    totalLabel.Text = rcc.getRegistration().getExtraFeeAmount().ToString();
-                    //discountLabel.Text = (rcc.getRegistration().getGrandTotal() - rcc.getRegistration().getTotal() - rcc.getRegistration().getExtraFeeAmount()).ToString();
-                    gTotalLabel.Text = rcc.getRegistration().getGrandTotal().ToString();
+                    
+                    
                     row++;
-                    discountLabel.Text = rcc.getRegistration().getDiscountStrategy().getTotal(rcc.getRegistration()).ToString();
+                    GetChanged(rcc.getRegistration());
                 }
             }
             catch (NullReferenceException n)
             {
 
             }
-            catch
+            catch (FreedomFighterCourseLimitExceeded ffcle)
             {
-                MessageBox.Show("Student who is a progeny of a Freedom Fighter cannot take more than 5 courses.", "Course limit exceeded!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Student who is a progeny of a Freedom Fighter cannot take more than 5 courses.", "Course limit exceeded! " + ffcle.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
             }
             finally
@@ -97,8 +97,6 @@ namespace CSE327_Assignment01
                 checks.ForEach(x => x.Enabled = true);
                 calcDiscButton.Enabled = true;
             }
-
-        
         }
 
         private void NewRegBttn_Click(object sender, EventArgs e)
@@ -118,55 +116,37 @@ namespace CSE327_Assignment01
         private void calcDiscButton_Click(object sender, EventArgs e)
         {
             int i = 0;
-            foreach (CheckBox c in checks) if (c.Checked) i++;
+            checks.ForEach(x => i += x.Checked ? 1 : 0);
             if (i == 0) return;
-            IDiscountStrategy disc_strat;
-            try
+            IDiscountStrategy disc_strat = null;
+
+            if (i == 1)
             {
-                if (i == 1)
-                {
-                    if (chkAE.Checked)
-                        disc_strat = new AcademicExcellenceDiscount();
-                    else if (chkAM.Checked)
-                        disc_strat = new AboriginalMinorityDiscount();
-                    else // if (chkFF.Checked)
-                        disc_strat = new FreedomFighterDiscount();
-                    rcc.getRegistration().setDiscountStrategy(disc_strat);
-                }
-                else
-                {
-                    
-                    if (comboBox1.Text == "Best for NSU")
-                    {
-                        disc_strat = new BestForNSU();
-                        var ds = (BestForNSU)disc_strat;
-                        if (chkAE.Checked) ds.add(new AcademicExcellenceDiscount());
-                        if (chkAM.Checked) ds.add(new AboriginalMinorityDiscount());
-                        if (chkFF.Checked) ds.add(new FreedomFighterDiscount());
-                        rcc.getRegistration().setDiscountStrategy(disc_strat);
-                        disc_strat = ds;
-                    }
-                    else
-                    {
-                        disc_strat = new BestForStudent();
-                        var ds = (BestForNSU)disc_strat;
-                        if (chkAE.Checked) ds.add(new AcademicExcellenceDiscount());
-                        if (chkAM.Checked) ds.add(new AboriginalMinorityDiscount());
-                        if (chkFF.Checked) ds.add(new FreedomFighterDiscount());
-                        rcc.getRegistration().setDiscountStrategy(disc_strat);
-                        disc_strat = ds;
-                    }
-                }
-                discountLabel.Text = disc_strat.getTotal(rcc.getRegistration()).ToString();
-                gTotalLabel.Text = rcc.getRegistration().getGrandTotal().ToString();
+                if (chkAE.Checked)
+                    disc_strat = new AcademicExcellenceDiscount();
+                else if (chkAM.Checked)
+                    disc_strat = new AboriginalMinorityDiscount();
+                else // if (chkFF.Checked)
+                    disc_strat = new FreedomFighterDiscount();
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("Student who is a progeny of a Freedom Fighter cannot take more than 5 courses.", "Course limit exceeded!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                discountLabel.Text = "0";
-                disc_strat = null;
+                CompositeDiscount ds = new CompositeDiscount(comboBox1.Text);
+                if (chkAE.Checked) ds.addDiscount(new AcademicExcellenceDiscount());
+                if (chkAM.Checked) ds.addDiscount(new AboriginalMinorityDiscount());
+                if (chkFF.Checked) ds.addDiscount(new FreedomFighterDiscount());
+                disc_strat = ds;
             }
-            SystemSounds.Beep.Play();
+            rcc.getRegistration().setDiscountStrategy(disc_strat);
+            GetChanged(rcc.getRegistration());
+            //SystemSounds.Beep.Play();
+        }
+
+        public void GetChanged(Registration r)
+        {
+            totalLabel.Text = rcc.getRegistration().getExtraFeeAmount().ToString();
+            discountLabel.Text = rcc.getRegistration().getDiscountedAmount().ToString();
+            gTotalLabel.Text = rcc.getRegistration().getGrandTotal().ToString();
         }
     }
 }

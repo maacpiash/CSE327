@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CSE327_Assignment01
 {
-    public class Registration : IObservable<IDiscountStrategy>
+    public class Registration
     {
         private List<Course> courseList;
         private IExtraFeeCalculator iefc;
@@ -44,18 +44,19 @@ namespace CSE327_Assignment01
             return iefc.getExtraAmount(this.getTotal());
         }
 
+        public int getDiscountedAmount()
+        {
+            return discountStrategy == null ? 0 : discountStrategy.getTotal(this);
+        }
+
         public int getGrandTotal()
         {
-            int discount = discountStrategy == null ? 0 : discountStrategy.getTotal(this);
-            return getTotal() + getExtraFeeAmount() - discount;
+            return getTotal() + getExtraFeeAmount() - getDiscountedAmount();
         }
 
         public void setDiscountStrategy(IDiscountStrategy ids) { discountStrategy = ids; }
         public IDiscountStrategy getDiscountStrategy() { return discountStrategy; }
 
-        public IDisposable Subscribe(IObserver<IDiscountStrategy> observer)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
