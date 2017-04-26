@@ -36,3 +36,5 @@ C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.c
 C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.RegistrationForm.resources
 C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.Properties.Resources.resources
 C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csproj.GenerateResource.Cache
+I:\CSE327\CSE327_Assignment01\bin\Debug\MySql.Data.dll
+I:\CSE327\CSE327_Assignment01\bin\Debug\MySql.Data.xml

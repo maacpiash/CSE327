@@ -16,6 +16,7 @@ namespace CSE327_Assignment01
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             success = true;
