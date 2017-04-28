@@ -38,3 +38,5 @@ C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.P
 C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\obj\Debug\CSE327_Assignment01.csproj.GenerateResource.Cache
 I:\CSE327\CSE327_Assignment01\bin\Debug\MySql.Data.dll
 I:\CSE327\CSE327_Assignment01\bin\Debug\MySql.Data.xml
+C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\bin\Debug\MySql.Data.dll
+C:\Users\maac\Desktop\CSE327\CSE327_Assignment01\bin\Debug\MySql.Data.xml
