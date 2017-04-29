@@ -47,14 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboriginalMinorityDiscount.cs" />
-    <Compile Include="AcademicExcellenceDiscount.cs" />
-    <Compile Include="BDTaxAdapter.cs" />
-    <Compile Include="BDTaxCalculator.cs" />
-    <Compile Include="BestForNSU.cs" />
-    <Compile Include="BestForStudent.cs" />
-    <Compile Include="CompositeDiscount.cs" />
-    <Compile Include="Course.cs" />
+    <Compile Include="NewCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCourseForm.Designer.cs">
+      <DependentUpon>NewCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\CourseMapper.cs" />
+    <Compile Include="DepttProgram.cs" />
+    <Compile Include="Discount\AboriginalMinorityDiscount.cs" />
+    <Compile Include="Discount\AcademicExcellenceDiscount.cs" />
+    <Compile Include="ExtraFee\BDTaxAdapter.cs" />
+    <Compile Include="ExtraFee\BDTaxCalculator.cs" />
+    <Compile Include="Discount\BestForNSU.cs" />
+    <Compile Include="Discount\BestForStudent.cs" />
+    <Compile Include="Discount\CompositeDiscount.cs" />
+    <Compile Include="Model\Course.cs" />
     <Compile Include="CourseFactory.cs" />
     <Compile Include="CourseRegForm.cs">
       <SubType>Form</SubType>
@@ -62,17 +70,24 @@
     <Compile Include="CourseRegForm.Designer.cs">
       <DependentUpon>CourseRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DevelopmentFeeCalculator.cs" />
-    <Compile Include="FreedomFighterDiscount.cs" />
-    <Compile Include="IDiscountStrategy.cs" />
-    <Compile Include="IExtraFeeCalculator.cs" />
+    <Compile Include="ExtraFee\DevelopmentFeeCalculator.cs" />
+    <Compile Include="Discount\FreedomFighterDiscount.cs" />
+    <Compile Include="Discount\IDiscountStrategy.cs" />
+    <Compile Include="ExtraFee\IExtraFeeCalculator.cs" />
+    <Compile Include="Persistence\IMapper.cs" />
     <Compile Include="ISubscriber.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Controller\Program.cs" />
+    <Compile Include="Persistence\DepttProgramMapper.cs" />
+    <Compile Include="Persistence\PersistenceFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterCourseController.cs" />
-    <Compile Include="Registration.cs" />
+    <Compile Include="Controller\RegisterCourseController.cs" />
+    <Compile Include="Model\Registration.cs" />
+    <Compile Include="Persistence\RegistrationMapper.cs" />
     <EmbeddedResource Include="CourseRegForm.resx">
       <DependentUpon>CourseRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCourseForm.resx">
+      <DependentUpon>NewCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +111,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

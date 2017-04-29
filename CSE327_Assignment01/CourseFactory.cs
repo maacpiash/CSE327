@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Collections.Specialized;
+using MySql.Data.MySqlClient;
 
 namespace CSE327_Assignment01
 {
@@ -13,44 +14,53 @@ namespace CSE327_Assignment01
     {
         private static CourseFactory instance;
         private IExtraFeeCalculator efCalculator;
-        private List<Course> cList;        
+        private List<Course> cList;
 
         public CourseFactory()
         {
             cList = new List<Course>();
 
-            Course course = new Course();
-            course.setId("CSE 327");
-            course.setTitle("Soft. Eng.");
-            course.setCredit(3);
-            course.setTuitionPerCredit(1500);
-            cList.Add(course);
+            string connectionString = "SERVER=localhost;DATABASE=cse327;UID=maac;PASSWORD=1416;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
 
-            cList.Add(new Course("CSE 482", "Web Development", 3, 1500));
-            cList.Add(new Course("CSE 418", "Computer Graphics", 3, 1500));
-            cList.Add(new Course("EEE 311", "Analog Electronics II", 3, 1500));
-            cList.Add(new Course("PHY 108", "Physics II", 3, 1500));
-            cList.Add(new Course("PHY 107", "Physics I", 3, 1500));
-            cList.Add(new Course("CSE 323", "Operating System", 3, 1500));
-            cList.Add(new Course("CSE 338", "Networking", 3, 1500));
-            cList.Add(new Course("CSE 231", "Digital Logic Design", 3, 1500));
-            cList.Add(new Course("CSE 332", "Computer Organization and Architechture", 3, 1500));
-            cList.Add(new Course("EEE 111", "Analog Electronics I", 3, 1500));
-            cList.Add(new Course("MAT 120", "Calculus and Analytic Geometry-I", 3, 1500));
-            cList.Add(new Course("MAT 130", "Calculus and Analytic Geometry-II", 3, 1500));
-            cList.Add(new Course("MAT 240", "Calculus and Analytic Geometry-III", 3, 1500));
-            cList.Add(new Course("MAT 250", "Calculus and Analytic Geometry-IV", 3, 1500));
-            cList.Add(new Course("MAT 350", "Engineering Mathematics", 3, 1500));
-            cList.Add(new Course("MAT 361", "Probability && Statistics", 3, 1500));
-            cList.Add(new Course("CSE 215", "Fundamentals of Computer Programming", 3, 1500));
-            cList.Add(new Course("CSE 115", "Computing Concepts", 3, 1500));
-            cList.Add(new Course("CSE 225", "Data Structures", 3, 1500));
-            cList.Add(new Course("EEE 141", "Electrical Circuits", 3, 1500));
-            cList.Add(new Course("CSE 311", "Database Management System", 3, 1500));
-            cList.Add(new Course("CSE 273", "Introduction to Theory of Computation", 3, 1500));
-            cList.Add(new Course("CSE 173", "Discrete Mathematics", 3, 1500));
+            string query = "select * from courses;";
+            MySqlCommand sqlcmd = new MySqlCommand(query, connection);
+
+            MySqlDataReader reader = sqlcmd.ExecuteReader();
+            
+            while (reader.Read())
+            {
+                Course x = new Course(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3));
+                cList.Add(x);
+            }
+            connection.Close();
+
+            connectionString = "SERVER=localhost;DATABASE=cse327;UID=maac;PASSWORD=1416;";
+            connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            query = "select * from programs;";
+            sqlcmd = new MySqlCommand(query, connection);
+
+
+            reader = sqlcmd.ExecuteReader();
+
+            while(reader.Read())
+            {
+                foreach (Course c in cList)
+                    if (reader.GetString(0) == c.getId())
+                    {
+                        c.setProgram(reader.GetString(2));
+                        break;
+                    }
+            }
+
+            connection.Close();
+
 
             instance = this;
+            
         }
 
         public static CourseFactory getInstance()
@@ -90,6 +100,11 @@ namespace CSE327_Assignment01
             if (!Program.success)
                 MessageBox.Show("No course found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return c.FirstOrDefault();
+        }
+
+        public List<Course> getCList()
+        {
+            return cList;
         }
     }
 }

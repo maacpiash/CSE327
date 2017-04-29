@@ -13,6 +13,7 @@ namespace CSE327_Assignment01
         private string title;
         private int credit;
         private int tuitionPerCredit;
+        private string program;
 
 
         /******************************* Constructors *******************************/
@@ -32,6 +33,7 @@ namespace CSE327_Assignment01
         public void setTitle(string t) { this.title = t; }
         public void setCredit(int c) { credit = c; }
         public void setTuitionPerCredit(int tpc) { tuitionPerCredit = tpc; }
+        public void setProgram(string p) { program = p; }
 
 
         /********************************* Getters *********************************/
@@ -39,10 +41,11 @@ namespace CSE327_Assignment01
         public string getTitle() { return title; }
         public int getCredit() { return credit; }
         public int getTuitionPerCredit() { return tuitionPerCredit; }
+        public string getProgram() { return program; }
 
 
         /***************************** Other Method(s) *****************************/
         public int getSubTotal() { return credit * tuitionPerCredit; }
-        public override string ToString() { return title; }
+        public override string ToString() { return id; }
     }
 }
