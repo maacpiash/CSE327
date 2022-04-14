@@ -8,8 +8,9 @@ The following design patterns are implemented in the project:
 
 - Factory
 - Singleton
-- Dependency Injection
-- Facade
+- Inversion of Control, Dependency Injection
+- Information Expert
+- Façade
 - Observer
 - MVC
 
